@@ -1,0 +1,23 @@
+.userList{
+    flex: 4;
+    padding: 25px;
+}
+.userTableUser{
+    display: flex;
+    align-items: center;
+}
+.userTableUser img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+}
+.userTableEditButton{
+    cursor: pointer;
+    padding:5px 10px;
+    border:none;
+    background-color: darkcyan;
+    color:white;
+    border-radius: 10px;
+    margin-right: 10px;
+}
