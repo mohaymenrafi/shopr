@@ -19,8 +19,9 @@
     margin-bottom: 10px;
   }
   
-  .addProductItem > input {
+  .addProductItem > input, .addProductItem > textarea {
     padding: 10px;
+    font-family: 'Source Sans Pro';
   }
   
   .addProductItem > select {
