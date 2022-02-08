@@ -10,20 +10,13 @@ import {
   Timeline,
   TrendingUp,
   WorkOutline,
-  ExitToApp,
 } from '@material-ui/icons';
 import React from 'react';
-import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { logOutUser } from '../../redux/apiCalls';
 import './Sidebar.css';
 // import { Link } from 'react-router-dom';
 
 export default function Sidebar() {
-  const dispatch = useDispatch();
-  const handleLogout = () => {
-    logOutUser(dispatch);
-  };
   return (
     <aside className="sidebar">
       <div className="sidebarWrapper">

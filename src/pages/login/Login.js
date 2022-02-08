@@ -1,19 +1,22 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { LoginAPI } from '../../redux/apiCalls';
+import { useNavigate } from 'react-router-dom';
+import { loginAPI } from '../../redux/apiCalls';
 
 const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const dispatch = useDispatch();
+  const nagivate = useNavigate();
 
   const handleClick = (e) => {
     e.preventDefault();
-    LoginAPI(dispatch, { username, password });
+    loginAPI(dispatch, { username, password }, nagivate);
+    console.log('login click');
   };
 
   return (
-    <div
+    <form
       style={{
         height: '100vh',
         display: 'flex',
@@ -22,6 +25,7 @@ const Login = () => {
         justifyContent: 'center',
         flex: 1,
       }}
+      onSubmit={handleClick}
     >
       <input
         style={{ padding: 10, marginBottom: 20 }}
@@ -35,14 +39,10 @@ const Login = () => {
         placeholder="password"
         onChange={(e) => setPassword(e.target.value)}
       />
-      <button
-        type="button"
-        onClick={handleClick}
-        style={{ padding: 10, width: 100 }}
-      >
+      <button type="submit" style={{ padding: 10, width: 100 }}>
         Login
       </button>
-    </div>
+    </form>
   );
 };
 

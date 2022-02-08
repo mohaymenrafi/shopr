@@ -1,12 +1,11 @@
-import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
 import Home from './pages/home/Home';
 import Login from './pages/login/Login';
 
 function App() {
-  const admin = JSON.parse(
-    JSON.parse(localStorage.getItem('persist:root')).user
-  ).currentUser?.isAdmin;
+  const admin = useSelector((state) => state.user.currentUser?.isAdmin);
   return (
     <BrowserRouter>
       <Routes>

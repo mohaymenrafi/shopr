@@ -13,21 +13,22 @@ import {
   addProductFailure,
   addProductStart,
 } from './productRedux';
-import { loginFailure, loginStart, loginSuccess, logOut } from './userRedux';
+import { loginFailure, loginStart, loginSuccess, logout } from './userRedux';
 // login api with redux
-export const LoginAPI = async (dispatch, user) => {
+export const loginAPI = async (dispatch, user, navigate) => {
   dispatch(loginStart());
   try {
     const res = await publicRequest.post('/auth/login', user);
     dispatch(loginSuccess(res.data));
+    navigate('/');
+    console.log(res.data);
   } catch {
     dispatch(loginFailure());
   }
 };
 // logout
-export const logOutUser = (dispatch) => {
-  dispatch(logOut);
-  console.log('logout done');
+export const userLogout = (dispatch) => {
+  dispatch(logout());
 };
 // get and store products to redux
 export const getProducts = async (dispatch) => {
